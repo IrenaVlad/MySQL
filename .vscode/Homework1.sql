@@ -8,8 +8,8 @@ CREATE TABLE mobils(
 	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY, 
 	product_name VARCHAR(45) NOT NULL, 
 	manufacturer VARCHAR(45) NOT NULL,
-	product_count INT,
-    price INT
+	product_count INT NOT NULL,
+    price INT NOT NULL
 );
 
 -- наполнение
@@ -31,6 +31,12 @@ WHERE product_name = 'Samsung';
 
 --С помощью регулярных выражений найти:
 	--4.1. Товары, в которых есть упоминание "Iphone"
+SELECT id, manufacturer, product_count, price FROM mobils
+WHERE product_name LIKE '%iPhone%';
 	--4.2. Товары, в которых есть упоминание "Samsung"
+SELECT id, product_name, product_count, price FROM mobils
+WHERE manufacturer = 'Samsung';
 	--4.3.  Товары, в которых есть ЦИФРЫ
 	--4.4.  Товары, в которых есть ЦИФРА "8"  
+SELECT id, manufacturer, product_count, price FROM mobils
+WHERE product_name LIKE %8%;
